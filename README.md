@@ -13,4 +13,4 @@ Tech stack?
 - JavaScript 
 - LocalStorage API
 
-Try it here: 
+Try it here: https://jaskarxn7.github.io/ApplyTrack/
