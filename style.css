@@ -1,0 +1,313 @@
+/* ---------- Basic page styles ---------- */
+
+:root {
+    --main-colour: #2563eb;
+    --background-colour: #f3f4f6;
+    --text-colour: #1f2937;
+    --muted-text-colour: #6b7280;
+    --border-colour: #e5e7eb;
+    --border-radius: 8px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    min-height: 100vh;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    color: var(--text-colour);
+    background-color: var(--background-colour);
+    line-height: 1.5;
+}
+
+h1, h2, h3 {
+    margin: 0;
+}
+
+/* ---------- Sidebar ---------- */
+
+.sidebar {
+    position: sticky; /* stays in view while the page scrolls */
+    top: 0;
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 230px;
+    height: 100vh;
+    padding: 24px 16px;
+    background-color: #111827;
+}
+
+.sidebar-title {
+    margin-bottom: 20px;
+    padding: 0 12px;
+    color: #ffffff;
+    font-size: 1.4rem;
+}
+
+.sidebar-link {
+    padding: 10px 12px;
+    border-radius: var(--border-radius);
+    color: #d1d5db;
+    text-decoration: none;
+}
+
+.sidebar-link:hover,
+.sidebar-link:focus {
+    background-color: #1f2937;
+    color: #ffffff;
+}
+
+/* ---------- Main content and header ---------- */
+
+.main-content {
+    flex: 1;
+    min-width: 0; /* stops a wide table from stretching the page */
+    max-width: 1100px;
+    padding: 36px 40px;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.page-header p {
+    margin: 4px 0 0;
+    color: var(--muted-text-colour);
+}
+
+/* ---------- Dashboard cards ---------- */
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+/* Cards and sections share the same box style */
+.stat-card,
+.applications-section,
+.form-section {
+    padding: 20px;
+    margin-bottom: 28px;
+    background-color: #ffffff;
+    border: 1px solid var(--border-colour);
+    border-radius: var(--border-radius);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.stat-card {
+    margin-bottom: 0; /* the grid gap already spaces the cards */
+}
+
+.stat-card h3 {
+    font-size: 0.85rem;
+    color: var(--muted-text-colour);
+}
+
+.stat-number {
+    margin: 8px 0 0;
+    font-size: 2.2rem;
+    font-weight: bold;
+}
+
+/* ---------- Applications table ---------- */
+
+.toolbar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    flex: 1;
+}
+
+.applications-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.applications-table th,
+.applications-table td {
+    padding: 14px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-colour);
+}
+
+.applications-table th {
+    background-color: #f9fafb;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--muted-text-colour);
+}
+
+.application-row:hover {
+    background-color: #f9fafb;
+}
+
+.empty-message {
+    padding: 32px;
+    text-align: center;
+    color: var(--muted-text-colour);
+    border: 1px dashed #d1d5db;
+    border-radius: var(--border-radius);
+}
+
+/* ---------- Forms and buttons ---------- */
+
+.application-form {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-width: 520px;
+    margin-top: 16px;
+}
+
+.application-form label {
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+input,
+select,
+textarea {
+    padding: 10px 12px;
+    font-family: inherit; /* form fields don't inherit the font by default */
+    font-size: 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: var(--border-radius);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--main-colour);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* Every button is grey by default. The classes below change the colour. */
+button {
+    padding: 10px 18px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-colour);
+    background-color: #e5e7eb;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+button:hover {
+    filter: brightness(0.92); /* darkens any button a little */
+}
+
+button:focus-visible {
+    outline: 2px solid var(--main-colour);
+    outline-offset: 2px;
+}
+
+.add-application-btn,
+.save-btn {
+    color: #ffffff;
+    background-color: var(--main-colour);
+}
+
+.delete-btn {
+    color: #b91c1c;
+    background-color: #fee2e2;
+}
+
+.edit-btn,
+.delete-btn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* ---------- Status labels ---------- */
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.status-applied { background-color: #dbeafe; color: #1e40af; }
+.status-assessment { background-color: #fef3c7; color: #92400e; }
+.status-interview { background-color: #ede9fe; color: #5b21b6; }
+.status-offer { background-color: #dcfce7; color: #166534; }
+.status-rejected { background-color: #fee2e2; color: #991b1b; }
+
+/* ---------- Responsive styles ---------- */
+
+@media (max-width: 900px) {
+    .dashboard-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    body {
+        flex-direction: column;
+    }
+
+    /* The sidebar becomes a bar across the top */
+    .sidebar {
+        position: static;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+        height: auto;
+        padding: 12px 16px;
+    }
+
+    .sidebar-title {
+        margin: 0 auto 0 0;
+        padding: 0;
+    }
+
+    .main-content {
+        padding: 16px;
+    }
+
+    .page-header,
+    .toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    /* Lets the table scroll sideways instead of breaking the layout */
+    .applications-table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+/* ---------- Helper class ---------- */
+
+/* JavaScript adds and removes this to show and hide elements.
+   !important makes it win over rules like the mobile table's display: block. */
+.hidden {
+    display: none !important;
+}

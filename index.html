@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ApplyTrack</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="sidebar">
+        <h1 class="sidebar-title">ApplyTrack</h1>
+        <a href="#dashboard" class="sidebar-link">Dashboard</a>
+        <a href="#applications" class="sidebar-link">Applications</a>
+    </nav>
+
+    <main class="main-content">
+
+        <header class="page-header">
+            <div>
+                <h2>Placement Applications</h2>
+                <p>Keep track of your internship and placement applications in one place.</p>
+            </div>
+            <button type="button" class="add-application-btn">Add Application</button>
+        </header>
+
+        <section id="dashboard" class="dashboard-cards">
+            <div class="stat-card">
+                <h3>Total Applications</h3>
+                <p id="total-count" class="stat-number">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Active</h3>
+                <p id="active-count" class="stat-number">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Interviews</h3>
+                <p id="interview-count" class="stat-number">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Offers</h3>
+                <p id="offer-count" class="stat-number">0</p>
+            </div>
+        </section>
+
+        <section id="applications" class="applications-section">
+            <div class="toolbar">
+                <input
+                    type="search"
+                    id="search-input"
+                    class="search-input"
+                    placeholder="Search by company or job title">
+
+                <select id="status-filter" class="filter-select">
+                    <option value="all">All statuses</option>
+                    <option value="Applied">Applied</option>
+                    <option value="Assessment">Assessment</option>
+                    <option value="Interview">Interview</option>
+                    <option value="Offer">Offer</option>
+                    <option value="Rejected">Rejected</option>
+                </select>
+            </div>
+
+            <table class="applications-table">
+                <thead>
+                    <tr>
+                        <th>Company</th>
+                        <th>Job Title</th>
+                        <th>Applied</th>
+                        <th>Deadline</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="applications-body">
+                    <!-- Rows are created by script.js -->
+                </tbody>
+            </table>
+
+            <p id="empty-message" class="empty-message">
+                No applications yet. Click "Add Application" to add your first one.
+            </p>
+        </section>
+
+        <section class="form-section hidden">
+            <h2 id="form-title">Add Application</h2>
+
+            <form id="application-form" class="application-form">
+                <label for="company-name">Company name</label>
+                <input type="text" id="company-name" name="companyName" required>
+
+                <label for="job-title">Job title</label>
+                <input type="text" id="job-title" name="jobTitle" required>
+
+                <label for="application-date">Application date</label>
+                <input type="date" id="application-date" name="applicationDate" required>
+
+                <label for="deadline">Deadline</label>
+                <input type="date" id="deadline" name="deadline">
+
+                <label for="application-status">Status</label>
+                <select id="application-status" name="applicationStatus">
+                    <option value="Applied">Applied</option>
+                    <option value="Assessment">Assessment</option>
+                    <option value="Interview">Interview</option>
+                    <option value="Offer">Offer</option>
+                    <option value="Rejected">Rejected</option>
+                </select>
+
+                <label for="notes">Notes</label>
+                <textarea id="notes" name="notes" rows="4"></textarea>
+
+                <div class="form-buttons">
+                    <button type="submit" class="save-btn">Save Application</button>
+                    <button type="button" class="cancel-btn">Cancel</button>
+                </div>
+            </form>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
